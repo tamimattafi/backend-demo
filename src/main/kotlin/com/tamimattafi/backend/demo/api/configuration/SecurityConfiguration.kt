@@ -14,4 +14,5 @@ class SecurityConfiguration : WebSecurityConfigurerAdapter(), ApplicationContext
     override fun configure(http: HttpSecurity) {
         http.csrf().disable().authorizeRequests().anyRequest().permitAll()
     }
+
 }
