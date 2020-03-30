@@ -5,16 +5,16 @@ import com.tamimattafi.backend.demo.api.controllers.home.HomeResponses.RESPONSE_
 import com.tamimattafi.backend.demo.api.responses.global.ErrorResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class HomeController {
 
-    @RequestMapping("/error")
+    @GetMapping("/error")
     fun error(): ResponseEntity<ErrorResponse> = ResponseEntity(ERROR_PAGE_NOT_FOUND, HttpStatus.NOT_FOUND)
 
-    @RequestMapping("/")
+    @GetMapping("/")
     fun home(): ResponseEntity<String> = ResponseEntity(RESPONSE_WELCOME, HttpStatus.OK)
 
 }
