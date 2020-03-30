@@ -9,7 +9,10 @@ import org.springframework.stereotype.Repository
 @Repository
 interface IRxUserRepository : RxJava2CrudRepository<UserEntity, Long> {
 
-    @Query("SELECT CASE WHEN EXISTS ( SELECT * FROM ${UserEntity.TABLE_NAME} WHERE username = :username) THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT) END")
-    fun existsByUsername(username: String): Single<Boolean>
+    @Query("SELECT * FROM ${UserEntity.TABLE_NAME} WHERE username = :username LIMIT 1")
+    fun findByUsername(username: String): Single<UserEntity>
+
+    @Query("SELECT * FROM ${UserEntity.TABLE_NAME} WHERE email = :email LIMIT 1")
+    fun findByEmail(email: String): Single<UserEntity>
 
 }

@@ -17,17 +17,26 @@ repositories {
 }
 
 dependencies {
+	//SPRING BOOT
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot.experimental:spring-boot-starter-data-r2dbc")
+
+	//KOTLIN
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	//RX JAVA
 	implementation("io.reactivex.rxjava2:rxjava:2.2.0")
 	implementation("io.reactivex:rxjava-reactive-streams:1.2.1")
+
+	//MYSQL
 	implementation("dev.miku:r2dbc-mysql:0.8.1.RELEASE")
+	implementation("io.r2dbc:r2dbc-pool")
 	runtimeOnly("mysql:mysql-connector-java")
-	runtimeOnly("io.r2dbc:r2dbc-h2")
+
+	//TEST
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}

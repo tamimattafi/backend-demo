@@ -1,9 +1,10 @@
 package com.tamimattafi.backend.demo.model
 
 data class User(
-        val id: Long,
+        val id: Long?,
         val username: String,
+        val email: String,
         val password: String
 ) {
-    constructor(username: String, password: String) : this(Long.MIN_VALUE, username, password)
+    constructor(username: String, email: String, password: String) : this(null, username, email, password)
 }

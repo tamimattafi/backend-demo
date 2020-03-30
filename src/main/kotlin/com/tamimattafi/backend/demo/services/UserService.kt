@@ -14,7 +14,12 @@ class UserService @Autowired constructor(override val repository: IRxUserReposit
 
     override val converter: EntityConverter<User, UserEntity> = UserEntity.Converter
 
-    fun userExists(username: String): Single<Boolean>
-        = repository.existsByUsername(username)
+    fun usernameExists(username: String): Single<Boolean>
+        = repository.findByUsername(username).onErrorReturn { UserEntity() }.map { it.id != null }
+
+    fun emailExists(username: String): Single<Boolean>
+        = repository.findByEmail(username).onErrorReturn { UserEntity() }.map { it.id != null }
+
+
 
 }

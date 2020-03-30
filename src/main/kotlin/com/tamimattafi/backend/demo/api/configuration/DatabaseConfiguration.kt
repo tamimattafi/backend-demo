@@ -1,26 +1,27 @@
 package com.tamimattafi.backend.demo.api.configuration
 
-import io.r2dbc.spi.ConnectionFactories
+import dev.miku.r2dbc.mysql.MySqlConnectionConfiguration
+import dev.miku.r2dbc.mysql.MySqlConnectionFactory
 import io.r2dbc.spi.ConnectionFactory
-import io.r2dbc.spi.ConnectionFactoryOptions.*
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.r2dbc.config.AbstractR2dbcConfiguration
-import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
+import java.time.Duration
 
 
 @Configuration
-@EnableR2dbcRepositories
 class DatabaseConfiguration : AbstractR2dbcConfiguration() {
 
     override fun connectionFactory(): ConnectionFactory
-         = ConnectionFactories.get(
-                builder().option(DRIVER, "mysql")
-                    .option(HOST, "localhost")
-                    .option(USER, "root")
-                    .option(PASSWORD, "root")
-                    .option(DATABASE, "demodb")
+        = MySqlConnectionFactory.from(
+            MySqlConnectionConfiguration.builder()
+                    .host("127.0.0.1")
+                    .username("root")
+                    .port(3306)
+                    .password("root")
+                    .database("demodb")
+                    .connectTimeout(Duration.ofSeconds(3))
+                    .useServerPrepareStatement()
                     .build()
         )
-
 
 }
