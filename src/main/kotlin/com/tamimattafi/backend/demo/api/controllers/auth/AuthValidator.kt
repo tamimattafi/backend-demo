@@ -1,6 +1,6 @@
 package com.tamimattafi.backend.demo.api.controllers.auth
 
-object Validator {
+object AuthValidator {
 
     const val USERNAME_MIN_SIZE = 4
     const val PASSWORD_MIN_SIZE = 8

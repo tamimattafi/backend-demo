@@ -2,7 +2,7 @@ package com.tamimattafi.backend.demo.api.controllers.auth
 
 import com.tamimattafi.backend.demo.api.responses.global.ErrorResponse
 
-object Responses {
+object AuthResponses {
 
     const val ERROR_REQUIRED_FIELD = "Required Field"
     const val ERROR_INVALID_FIELD = "Invalid Field"
