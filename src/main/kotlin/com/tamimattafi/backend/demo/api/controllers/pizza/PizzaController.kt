@@ -20,7 +20,7 @@ class PizzaController @Autowired constructor() {
     }
 
     @PostMapping("/order")
-    fun sendOrder(@RequestBody orders: List<PizzaEntity>): ResponseEntity<Unit> {
+    fun sendOrder(@RequestBody orders: List<PizzaOrder>): ResponseEntity<Unit> {
         if (orders.isEmpty()) return ResponseEntity.badRequest().build()
         return ResponseEntity.ok().build()
     }

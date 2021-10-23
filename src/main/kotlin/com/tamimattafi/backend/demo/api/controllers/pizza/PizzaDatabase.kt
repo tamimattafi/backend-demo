@@ -22,6 +22,11 @@ class PizzaDao(private val pizzaList: List<PizzaEntity>) {
     fun <T> query(rawQuery: (List<PizzaEntity>) -> T): T = rawQuery(pizzaList)
 }
 
+data class PizzaOrder(
+    val pizzaId: Int,
+    val quantity: Int
+)
+
 data class PizzaEntity(
     val id: Int,
     override val name: String,
