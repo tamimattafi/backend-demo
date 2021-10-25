@@ -6,7 +6,7 @@ object PizzaDatabase {
             index + 1,
             item.name,
             item.price,
-            item.imageUrl,
+            item.imageUrls,
             item.description
         )
     }
@@ -31,19 +31,19 @@ data class PizzaEntity(
     val id: Int,
     override val name: String,
     override val price: Double,
-    override val imageUrl: String,
+    override val imageUrls: List<String>,
     override val description: String
 ) : Pizza(
     name,
     price,
-    imageUrl,
+    imageUrls,
     description
 )
 
 open class Pizza(
     open val name: String,
     open val price: Double,
-    open val imageUrl: String,
+    open val imageUrls: List<String>,
     open val description: String
 )
 
@@ -51,7 +51,7 @@ val pizzaSet = listOf(
     Pizza(
         "Margarita",
         799.0,
-        "https://static.1000.menu/img/content-v2/ef/27/10853/picca-margarita-v-domashnix-usloviyax_1608783820_4_max.jpg",
+        listOf("https://static.1000.menu/img/content-v2/ef/27/10853/picca-margarita-v-domashnix-usloviyax_1608783820_4_max.jpg"),
         "Pizza Margherita (more commonly known in English as Margherita pizza) is a " +
             "typical Neapolitan pizza, made with San Marzano tomatoes, mozzarella cheese, fresh " +
             "basil, salt, and extra-virgin olive oil."
@@ -59,7 +59,7 @@ val pizzaSet = listOf(
     Pizza(
         "Detroit",
         999.0,
-        "https://cdnimg.webstaurantstore.com/uploads/blog/2019/3/blog-types-pizza_in-blog-7.jpg",
+        listOf("https://cdnimg.webstaurantstore.com/uploads/blog/2019/3/blog-types-pizza_in-blog-7.jpg"),
         "Reflecting the city’s deep ties to the auto industry, Detroit-style pizza was " +
             "originally baked in a square automotive parts pan in the 1940’s. Detroit pizza is " +
             "first topped with pepperoni, followed by brick cheese which is spread to the very " +
@@ -70,7 +70,7 @@ val pizzaSet = listOf(
     Pizza(
         "Greek Pizza",
         699.0,
-        "https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/onions.jpg",
+        listOf("https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/onions.jpg"),
         "Greek pizza was created by Greek immigrants who came to America and were " +
             "introduced to Italian pizza. Greek-style pizza, especially popular in the New " +
             "England states, features a thick and chewy crust cooked in shallow, oiled pans, " +
@@ -81,7 +81,7 @@ val pizzaSet = listOf(
     Pizza(
         "New York-Style Pizza",
         560.0,
-        "https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/flat.jpg",
+        listOf("https://cdnimg.webstaurantstore.com/uploads/blog/2016/8/flat.jpg"),
         "With its characteristic large, foldable slices and crispy outer crust, " +
             "New York-style pizza is one of America’s most famous regional pizza types. " +
             "Originally a variation of Neapolitan-style pizza, the New York slice has taken " +
@@ -91,7 +91,7 @@ val pizzaSet = listOf(
     Pizza(
         "California",
         910.0,
-        "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-gourmet.jpg",
+        listOf("https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-gourmet.jpg"),
         "California pizza, or gourmet pizza, is known for its unusual ingredients. " +
             "This pizza got its start back in the late 1970’s when Chef Ed LaDou began " +
             "experimenting with pizza recipes in the classic Italian restaurant, Prego. He " +
@@ -104,7 +104,7 @@ val pizzaSet = listOf(
     Pizza(
         "Chicago",
         460.0,
-        "https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-deepdish.jpg",
+        listOf("https://cdnimg.webstaurantstore.com/uploads/buying_guide/2014/11/pizzatypes-deepdish.jpg"),
         "Chicago pizza, also commonly referred to as deep-dish pizza, gets its name " +
             "from the city it was invented in. During the early 1900’s, Italian immigrants in " +
             "the windy city were searching for something similar to the Neapolitan pizza that " +
